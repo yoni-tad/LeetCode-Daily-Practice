@@ -1,6 +1,5 @@
 import sys
 
-
 def formingMagicSquare():
     s = [[4, 9, 2], [3, 5, 7], [8, 1, 5]]
     s = sum(s, [])
@@ -14,8 +13,6 @@ def formingMagicSquare():
         for j, k in zip(s, i):
             diff += abs(j - k)
         cost = min(cost, diff)
-
-
     return cost
 
 print(formingMagicSquare())
