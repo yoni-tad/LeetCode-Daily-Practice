@@ -1,25 +1,41 @@
 def lengthOfLongestSubstring():
     s = "pwwkew"
+    n = len(s)
 
-    s_new = ""
-    for i in s:
-        if i not in s_new:
-            s_new += i
+    ans = 0
+    left = 0
+    right = 0
 
-    count = 0
-    longest = 0
-    current = 0
-
-    for i in s_new:
-        if ord(i) > current:
-            current = ord(i)
-            count += 1            
-        if ord(i) < current:
-            longest = max(longest, count)
-            current = ord(i)
-            count = 0        
-        longest = max(longest, count)
+    s_new = []
+    for i in range(n):
+        for j in range(i, n):
+            if s[i] == s[j]:
+                left = s.index(s[i]) - 1 
         
-    return longest
+        right += 1
+
+        ans = max(ans, right - left)
+        
+
+
+
+    return ans
+
+
+
+    # ans = 0
+
+    # s_new = []
+    # for i in s:
+    #     if i in s_new:
+    #         ans = max(ans, len(s_new))
+    #         s_new.clear()
+    #         s_new.append(i)
+    #     else:
+    #         s_new.append(i)
+        
+    #     ans = max(ans, len(s_new))
+
+    # return ans
 
 print(lengthOfLongestSubstring())
